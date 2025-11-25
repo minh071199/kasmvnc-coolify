@@ -5,20 +5,20 @@ services:
     image: lscr.io/linuxserver/kasm:latest
     container_name: kasmvnc-desktop
     security_opt:
-      - seccomp:unconfined                          # bắt buộc cho GUI
-    shm_size: "2gb"                                  # giảm lag cực mạnh
+      - seccomp:unconfined                          # use for GUI
+    shm_size: "2gb"                                  # reduce delay and lag
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Ho_Chi_Minh
-      - VNC_PASSWORD=abcd1234                        # ← ĐỔI MẬT KHẨU MẠNH Ở ĐÂY
-      - ENABLE_CJK_FONT=1                            # font tiếng Việt đẹp
+      - VNC_PASSWORD=abcd1234                        # change PASSWORD
+      - ENABLE_CJK_FONT=1                            # FONT VIETNAM
       - KASM_PORT=3000
     volumes:
-      - /home/${USER}/kasmvnc-data:/config           # ← lưu toàn bộ cài đặt, file, phần mềm
+      - /home/${USER}/kasmvnc-data:/config           # folder to save file, config, setting
     ports:
       - "3000:3000"                                  # web access
-      - "8443:8443"                                  # HTTPS (tự có cert)
+      - "8443:8443"                                  # HTTPS (cert)
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000"]
