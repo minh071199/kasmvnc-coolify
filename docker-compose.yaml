@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   kasmvnc:
-    image: lscr.io/linuxserver/kasm
+    image: linuxserver/kasm
     container_name: kasmvnc-desktop
     security_opt:
       - seccomp:unconfined 
