@@ -3,7 +3,7 @@ version: "3.9"
 services:
   kasmvnc:
     #image: 'lscr.io/linuxserver/webtop:ubuntu-mate'
-    image: 'lscr.io/linuxserver/webtop:latest'
+    #image: 'lscr.io/linuxserver/webtop:latest'
     image: 'ghcr.io/linuxserver/baseimage-kasmvnc:alpine320'
     container_name: kasmvnc-desktop
     security_opt:
