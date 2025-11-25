@@ -5,20 +5,20 @@ services:
     image: lscr.io/linuxserver/kasm:latest
     container_name: kasmvnc-desktop
     security_opt:
-      - seccomp:unconfined                          # use for GUI
-    shm_size: "2gb"                                  # reduce delay and lag
+      - seccomp:unconfined 
+    shm_size: "2gb"  
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Ho_Chi_Minh
-      - VNC_PASSWORD=abcd1234                        # change PASSWORD
-      - ENABLE_CJK_FONT=1                            # FONT VIETNAM
+      - VNC_PASSWORD=abcd1234
+      - ENABLE_CJK_FONT=1                         
       - KASM_PORT=3000
     volumes:
-      - /home/${USER}/kasmvnc-data:/config           # folder to save file, config, setting
+      - /home/minhle711/kasmvnc-data:/config         
     ports:
-      - "3000:3000"                                  # web access
-      - "8443:8443"                                  # HTTPS (cert)
+      - "3000:3000"   
+      - "8443:8443"    
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000"]
