@@ -7,6 +7,7 @@ services:
     #image: 'lscr.io/linuxserver/webtop'
     image: lscr.io/linuxserver/kasm:latest
     container_name: kasm
+    privileged: true
     security_opt:
       - seccomp:unconfined 
     shm_size: "2gb"  
@@ -16,11 +17,11 @@ services:
       - TZ=Asia/Ho_Chi_Minh
       - VNC_PASSWORD=abcd1234
       - ENABLE_CJK_FONT=1                         
-      - KASM_PORT=3000
+      - KASM_PORT=443
     volumes:
       - /home/minhle711/kasmvnc-data:/config         
     ports:
-      - "3000:3000"   
+      - "443:443"   
       - "8443:8443"    
     restart: unless-stopped
     healthcheck:
