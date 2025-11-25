@@ -1,13 +1,17 @@
 services:
-  webtop:
+  kasmvnc:
     image: 'lscr.io/linuxserver/webtop:ubuntu-mate'
-    container_name: webtop
+    container_name: kasmvnc
     security_opt:
-      - 'seccomp:unconfined'
+      - seccomp:unconfined
+    shm_size: "2gb"
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Asia/Ho_Chi_Minh
+      - VNC_PASSWORD=abcd1234@                
+      - ENABLE_CJK_FONT=1
+      - KASM_PORT=3000
       - SUBFOLDER=/
       - TITLE=Webtop
       - CUSTOM_USER=minhle711
@@ -15,13 +19,13 @@ services:
       - 'DOCKER_MODS=linuxserver/mods:universal-package-install'
       - INSTALL_PACKAGES=font-noto-cjk
     volumes:
-#      - 'webtop-config:/config'
-      - '/home/minhle711/kasmvnc-data:/config'
-#      - '/var/run/docker.sock:/var/run/docker.sock'
+      - /home/minhle711/kasmvnc-data:/config
     ports:
       - "3000:3000"
       - "8443:8443"
-#    devices:
-#      - '/dev/dri:/dev/dri'
-    shm_size: 1gb
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
