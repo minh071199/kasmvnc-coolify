@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   kasmvnc:
-    image: linuxserver/webtop
+    image: 'lscr.io/linuxserver/webtop:ubuntu-mate'
     container_name: kasmvnc-desktop
     security_opt:
       - seccomp:unconfined 
