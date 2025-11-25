@@ -1,6 +1,6 @@
 services:
   kasmvnc:
-    image: 'lscr.io/linuxserver/webtop:ubuntu-mate'
+    image: 'lscr.io/linuxserver/webtop:latest'
     container_name: kasmvnc
     security_opt:
       - seccomp:unconfined
