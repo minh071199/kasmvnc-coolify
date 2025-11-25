@@ -12,12 +12,12 @@ services:
       - VNC_PASSWORD=abcd1234@                
       - ENABLE_CJK_FONT=1
       - KASM_PORT=3000
-      - SUBFOLDER=/
+#      - SUBFOLDER=/
       - TITLE=Webtop
       - CUSTOM_USER=minhle711
       - PASSWORD=Minh123@/?!
-      - 'DOCKER_MODS=linuxserver/mods:universal-package-install'
-      - INSTALL_PACKAGES=font-noto-cjk
+#      - 'DOCKER_MODS=linuxserver/mods:universal-package-install'
+#      - INSTALL_PACKAGES=font-noto-cjk
     volumes:
       - /home/minhle711/kasmvnc-data:/config
     ports:
