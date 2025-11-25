@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   kasmvnc:
-    image: application/vnd.docker.distribution.manifest.v2+json
+    image: linuxserver/webtop
     container_name: kasmvnc-desktop
     security_opt:
       - seccomp:unconfined 
