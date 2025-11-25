@@ -13,9 +13,9 @@ services:
       - ENABLE_CJK_FONT=1
       - KASM_PORT=3000
 #      - SUBFOLDER=/
-      - TITLE=Webtop
-      - CUSTOM_USER=minhle711
-      - PASSWORD=Minh123@/?!
+#      - TITLE=Webtop
+#      - CUSTOM_USER=minhle711
+#      - PASSWORD=Minh123@/?!
 #      - 'DOCKER_MODS=linuxserver/mods:universal-package-install'
 #      - INSTALL_PACKAGES=font-noto-cjk
     volumes:
